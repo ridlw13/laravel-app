@@ -15,8 +15,13 @@
     <h6 class="card-subtitle mb-2 text-muted">{{$student->nrp}}</h6>
     <p class="card-text">{{$student->email}}</p>
     <p class="card-text">{{$student->jurusan}}</p>
-    <a href="#" class="btn success">Edit</a>
-    <a href="#" class="btn danger">delete</a>
+    <a href="{{ $student->id }}/edit" class="btn btn-primary">Edit </a>
+
+    <form action="{{ $student->id}}" method="post" class="display d-inline">
+    @method('delete')
+    @csrf
+    <button type="submit" class="btn btn-danger">Hapus </button>
+    </form>
     <a href="{{url('students/')}}" class="card-link">kembali</a>
   </div>
 </div>
